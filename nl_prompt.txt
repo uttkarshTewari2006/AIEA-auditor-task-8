@@ -34,5 +34,5 @@ A player recruited by some teams should be well-known.
 If Michael Jordan is a professional athlete, then the same for LeBron James.
 Tom Brady is a professional athlete.
 
-Aswer the question: Is the following statement true, false, or unknown?
+Answer the question: Is the following statement true, false, or unknown?
 LeBron James is well-known.
