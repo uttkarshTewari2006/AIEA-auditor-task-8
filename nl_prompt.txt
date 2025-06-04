@@ -1,37 +1,38 @@
-% Facts about people and their relationships
-parent(tom, bob).
-parent(tom, liz).
-parent(bob, ann).
-parent(bob, pat).
-parent(pat, jim).
-parent(liz, bill).
-parent(liz, mary).
-parent(mary, joe).
-parent(mary, sue).
+Translate the following text to First Order Logic. Give your response in a format that can be 
+understood by prover9 as an input file. For reference, here is a sample prover9 input file: 
+assign(max_seconds, 30).
 
-male(tom).
-male(bob).
-male(bill).
-male(jim).
-male(joe).
+assign(new_constants, 1).
 
-female(liz).
-female(ann).
-female(pat).
-female(mary).
-female(sue).
+assign(max_weight,25).
 
-% Rules for family relationships
-father(X, Y) :- parent(X, Y), male(X).
-mother(X, Y) :- parent(X, Y), female(X).
+% This proves distributivity from a Boolean algebra basis.
 
-grandparent(X, Z) :- parent(X, Y), parent(Y, Z).
-grandfather(X, Z) :- grandparent(X, Z), male(X).
-grandmother(X, Z) :- grandparent(X, Z), female(X).
+formulas(sos).
 
-sibling(X, Y) :- parent(Z, X), parent(Z, Y), X \= Y.
-brother(X, Y) :- sibling(X, Y), male(X).
-sister(X, Y) :- sibling(X, Y), female(X).
+  x v (y v z) = y v (x v z).
+  x ^ y = (x' v y')'.
+  x v x' = y v y'.
+  (x v y') ^ (x v y) = x.
 
-ancestor(X, Y) :- parent(X, Y).
-ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
+end_of_list.
+
+set(restrict_denials).
+
+formulas(goals).
+
+  x ^ (y v z) = (x ^ y) v (x ^ z) # label(distributivity_1).
+
+end_of_list.
+
+and here is the natural language prompt that your task is to translate into first order logic as a prover9 input file.
+Ensure that your response can be directly runnable as a prover9 input file and doesn't contain any additional symbols.:
+
+No professional athlete could have poor physical fitness.
+If a professional athlete has good physical fitness, they are recruited by some teams.
+A player recruited by some teams should be well-known.
+If Michael Jordan is a professional athlete, then the same for LeBron James.
+Tom Brady is a professional athlete.
+
+Aswer the question: Is the following statement true, false, or unknown?
+LeBron James is well-known.

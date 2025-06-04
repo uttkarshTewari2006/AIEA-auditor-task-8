@@ -5,6 +5,7 @@ from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
 import getpass
 import os
+import regex
 
 load_dotenv()
 
@@ -27,7 +28,21 @@ def file_to_string(file_path):
 # Example usage:
 file_path = 'nl_prompt.txt'
 file_string = file_to_string(file_path)
-print(file_string)
 
-model.invoke("Translate the following text to First Order Logic: " + file_string)
+# Store the model's response
+response = model.invoke(file_string)
+
+# Print the response
+print("Model's response:")
+print(response.content)
+
+# Extract text within triple quotes using regex
+triple_quoted_text = regex.findall(r"```(.*?)```", response.content, regex.DOTALL)
+
+# Print extracted text
+print("\nExtracted text from triple quotes:")
+print(triple_quoted_text)
+
+
+
 
