@@ -56,7 +56,9 @@ IMPORTANT QUERY PATTERNS:
 Knowledge base content:
 {kb_content}
 
-When you make a query, I will execute it and provide the results. Then provide a natural language answer based on the results."""
+When you make a query, I will execute it and provide the results. Then provide a natural language answer based on the results.
+
+When asked a question, respond with ONLY the Prolog query needed to answer it. Do NOT include explanations or code blocks. Example: male(tom)."""
 
 # Initial conversation
 messages = [
